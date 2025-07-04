@@ -462,8 +462,8 @@ class DefaultStyles {
       ),
       placeHolder: DefaultTextBlockStyle(
           defaultTextStyle.style.copyWith(
-            fontSize: 16,
-            height: 1.3,
+            fontSize: 14,
+            height: 1.15,
             color: Colors.grey,
           ),
           HorizontalSpacing.zero,
