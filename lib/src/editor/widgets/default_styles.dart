@@ -207,7 +207,7 @@ class DefaultListBlockStyle extends DefaultTextBlockStyle {
       checkboxUIBuilder ?? this.checkboxUIBuilder,
       indentWidthBuilder: indentWidthBuilder ?? this.indentWidthBuilder,
       numberPointWidthBuilder:
-      numberPointWidthBuilder ?? this.numberPointWidthBuilder,
+          numberPointWidthBuilder ?? this.numberPointWidthBuilder,
     );
   }
 }
@@ -296,12 +296,12 @@ class DefaultStyles {
     );
     const baseHorizontalSpacing = HorizontalSpacing(0, 0);
     const baseVerticalSpacing = VerticalSpacing(6, 0);
-    final fontFamily = themeData.isCupertino ? 'Menlo' : 'Roboto Mono';
 
-    final inlineCodeStyle = TextStyle(
+    const inlineCodeStyle = TextStyle(
+      fontFamily: 'monospace',
       fontSize: 14,
-      color: themeData.colorScheme.primary.withValues(alpha: 0.8),
-      fontFamily: fontFamily,
+      backgroundColor: Colors.transparent,
+      color: Color.fromARGB(255, 179, 117, 32),
     );
 
     return DefaultStyles(
@@ -416,8 +416,8 @@ class DefaultStyles {
         null,
       ),
       paragraph: DefaultTextBlockStyle(
-        baseStyle,
-        baseHorizontalSpacing,
+        baseStyle.copyWith(fontSize: 14, color: Colors.white),
+        const HorizontalSpacing(2, 2),
         VerticalSpacing.zero,
         VerticalSpacing.zero,
         null,
@@ -440,8 +440,8 @@ class DefaultStyles {
       underline: const TextStyle(decoration: TextDecoration.underline),
       strikeThrough: const TextStyle(decoration: TextDecoration.lineThrough),
       inlineCode: InlineCodeStyle(
-        backgroundColor: Colors.grey.shade100,
-        radius: const Radius.circular(3),
+        backgroundColor: const Color(0xFF2C2C2E),
+        radius: const Radius.circular(6),
         style: inlineCodeStyle,
         header1: inlineCodeStyle.copyWith(
           fontSize: 32,
@@ -462,11 +462,11 @@ class DefaultStyles {
       ),
       placeHolder: DefaultTextBlockStyle(
           defaultTextStyle.style.copyWith(
-            fontSize: 20,
-            height: 1.5,
-            color: Colors.grey.withValues(alpha: 0.6),
+            fontSize: 16,
+            height: 1.3,
+            color: Colors.grey,
           ),
-          baseHorizontalSpacing,
+          HorizontalSpacing.zero,
           VerticalSpacing.zero,
           VerticalSpacing.zero,
           null),
@@ -490,18 +490,19 @@ class DefaultStyles {
         ),
       ),
       code: DefaultTextBlockStyle(
-          TextStyle(
-            color: Colors.blue.shade900.withValues(alpha: 0.9),
-            fontFamily: fontFamily,
-            fontSize: 13,
+          const TextStyle(
+            color: Colors.white,
+            fontFamily: 'monospace',
+            fontSize: 14,
             height: 1.15,
           ),
-          baseHorizontalSpacing,
-          baseVerticalSpacing,
+          HorizontalSpacing.zero,
+          VerticalSpacing.zero,
           VerticalSpacing.zero,
           BoxDecoration(
-            color: Colors.grey.shade50,
-            borderRadius: BorderRadius.circular(2),
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(4),
+            border: Border.all(color: Colors.white24, width: 1),
           )),
       indent: DefaultTextBlockStyle(
         baseStyle,
