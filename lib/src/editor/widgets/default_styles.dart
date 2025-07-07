@@ -92,7 +92,6 @@ class InlineCodeStyle {
     this.header6,
     this.backgroundColor,
     this.radius,
-    this.decoration,
   });
 
   /// Base text style for an inline code.
@@ -121,12 +120,6 @@ class InlineCodeStyle {
 
   /// Radius used when paining the background.
   final Radius? radius;
-
-  /// Decoration of a text block.
-  ///
-  /// Decoration, if present, is painted in the content area, excluding
-  /// any [spacing].
-  final BoxDecoration? decoration;
 
   /// Returns effective style to use for inline code for the specified
   /// [lineStyle].
@@ -168,13 +161,12 @@ class InlineCodeStyle {
         other.header5 == header5 &&
         other.header6 == header6 &&
         other.backgroundColor == backgroundColor &&
-        other.radius == radius &&
-        other.decoration == decoration;
+        other.radius == radius;
   }
 
   @override
   int get hashCode => Object.hash(style, header1, header2, header3, header4,
-      header5, header6, backgroundColor, radius, decoration);
+      header5, header6, backgroundColor, radius);
 }
 
 @immutable
@@ -448,14 +440,9 @@ class DefaultStyles {
       underline: const TextStyle(decoration: TextDecoration.underline),
       strikeThrough: const TextStyle(decoration: TextDecoration.lineThrough),
       inlineCode: InlineCodeStyle(
-        backgroundColor: Colors.transparent,
-        radius: const Radius.circular(4),
+        backgroundColor: const Color(0xFF2C2C2E),
+        radius: const Radius.circular(6),
         style: inlineCodeStyle,
-        decoration: BoxDecoration(
-          color: Colors.transparent,
-          borderRadius: BorderRadius.circular(4),
-          border: Border.all(color: Colors.white24, width: 1),
-        ),
         header1: inlineCodeStyle.copyWith(
           fontSize: 32,
           fontWeight: FontWeight.w500,
