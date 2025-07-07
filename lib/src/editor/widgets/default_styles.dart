@@ -441,7 +441,7 @@ class DefaultStyles {
       strikeThrough: const TextStyle(decoration: TextDecoration.lineThrough),
       inlineCode: InlineCodeStyle(
         backgroundColor: const Color(0xFF2C2C2E),
-        radius: const Radius.circular(6),
+        radius: const Radius.circular(4),
         style: inlineCodeStyle,
         header1: inlineCodeStyle.copyWith(
           fontSize: 32,
